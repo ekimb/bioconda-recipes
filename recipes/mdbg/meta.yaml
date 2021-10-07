@@ -22,10 +22,6 @@ requirements:
     - numpy
     - seqtk
     - gfatools
-    - matplotlib
-
-  run:    
-    - python
 
 test:
   commands:
