@@ -1,0 +1,44 @@
+{% set version = "1.0.1" %}
+
+package:
+  name: mdbg
+  version: {{ version }}
+
+build:
+  number: 0
+  noarch: generic
+
+
+source:
+  url: https://github.com/ekimb/rust-mdbg/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: c9c0d2980fff402ee78b5c537140aa2a92aceea74e2f206439c7a42211cbd80b
+
+requirements:
+  build:
+    - rust >=1.30
+
+  host:
+    - python
+    - numpy
+    - seqtk
+    - gfatools
+    - matplotlib
+
+  run:    
+    - python
+
+test:
+  commands:
+    - rust-mdbg --help
+    - to_basespace --help
+
+about:
+  home: https://github.com/ekimb/rust-mdbg
+  license: MIT
+  summary: |
+    An ultra-fast minimizer-space de Bruijn graph (mdBG) implementation, geared towards the assembly of long
+    and accurate reads such as PacBio HiFi.
+
+extra:
+  recipe-maintainers:
+    - ekimb
